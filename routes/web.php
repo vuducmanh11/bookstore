@@ -11,8 +11,14 @@
 |
 */
 
+use App\Book;
+
 Route::get('/', function () {
-    return view('welcome');
+    $books = Book::
+        latest($column = 'created_at')
+        ->take(10)
+        ->get();
+    return view('welcome', compact('books'));
 });
 
 Route::get('profile/{name}', 'ProfileController@showProfile');
@@ -20,3 +26,8 @@ Route::get('profile/{name}', 'ProfileController@showProfile');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin', 'AdminController@showProfile');

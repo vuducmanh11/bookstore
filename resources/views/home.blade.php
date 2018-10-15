@@ -16,6 +16,14 @@
 
                     You are logged in!
                 </div>
+                <div>
+                    @if (Auth::user()->role_id == 0)
+                        <p>Is customer</p>
+                    @else
+                        <a href="{{ url('admin') }}">Go to admin page</a>
+                        <p>Is admin</p>
+                    @endif
+                </div>
             </div>
         </div>
     </div>
