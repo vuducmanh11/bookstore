@@ -21,7 +21,7 @@ Route::get('/', function () {
     return view('welcome', compact('books'));
 });
 
-Route::get('profile/{name}', 'ProfileController@showProfile');
+
 
 Auth::routes();
 
@@ -30,4 +30,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/admin', 'AdminController@showProfile');
+// Admin
+Route::get('admin/profile', 'AdminController@showProfile');
+Route::get('admin/profile/edit','AdminController@editProfile');
+Route::post('/admin/profile/update', array('before' => 'csrf', 'uses' => 'AdminController@updateProfile'));
+// Customer
+Route::get('/customer/profile', 'CustomerController@showProfile');
+Route::get('customer/profile/edit','CustomerController@editProfile');
+Route::post('/customer/profile/update', array('before' => 'csrf', 'uses' => 'CustomerController@updateProfile'));

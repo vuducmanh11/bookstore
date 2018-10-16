@@ -18,9 +18,9 @@
                 </div>
                 <div>
                     @if (Auth::user()->role_id == 0)
-                        <p>Is customer</p>
+                        <a href="{{ url('customer/profile') }}">View profile</a>
                     @else
-                        <a href="{{ url('admin') }}">Go to admin page</a>
+                        <a href="{{ url('admin/profile') }}">View profile</a>
                         <p>Is admin</p>
                     @endif
                 </div>

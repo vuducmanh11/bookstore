@@ -1,10 +1,14 @@
 <?php
-
+/**
+ * Created by PhpStorm.
+ * User: Vu Duc Manh
+ * Date: 10/10/2018
+ * Time: 4:30 AM
+ */
 namespace App\Http\Controllers;
 
-use Auth;
-
-class AdminController extends Controller
+use Illuminate\Routing\Controller as BaseController;
+class CustomerController extends BaseController
 {
     public function showProfile() {
         return view('admin');
